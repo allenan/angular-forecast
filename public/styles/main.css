@@ -1,0 +1,121 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+}
+
+.main {
+  height: 100%;
+  background-color: #f8f8f8;
+  padding-top: 16px;
+}
+
+.city {
+  background: white;
+  width: 350px;
+  padding: 20px;
+  position: relative;
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+}
+
+.current .left {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+  text-align: center;
+}
+
+.current .right {
+  display: inline-block;
+  width: 47%;
+  vertical-align: top;
+  margin-left: 15px;
+}
+
+.name {
+  font-size: 24px;
+  color: #6d6d6d;
+}
+
+.primary-icon {
+  font-size: 4em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.summary {
+  font-family: "Helvetica CY", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #6a6a6a;
+  margin: 0;
+}
+
+.wind img {
+  margin-right: 0.3em;
+}
+
+.wind {
+  color: #808080;
+  font-size: 1.2em;
+}
+
+.wind sup {
+  top: -0.4em;
+  font-size: 0.6em;
+  margin-left: 2px;
+}
+
+.temp {
+  font-size: 130px;
+  line-height: 130px;
+  color: #979797;
+}
+
+.forecast {
+  margin-top: 14px;
+  padding: 0;
+}
+
+.forecast .day {
+  width: 24%;
+  display: inline-block;
+  text-align: center;
+}
+
+.forecast .weekday {
+  margin-bottom: 3px;
+  text-transform: uppercase;
+}
+
+.forecast .secondary-icon {
+  font-size: 2em;
+  width: 100%;
+  display: block;
+  height: 26px;
+}
+
+.forecast .secondary-icon:after {
+  position: inherit;
+}
+
+.forecast .high {
+  margin: 0;
+  margin-top: 4px;
+  color: #393939;
+  font-weight: bold;
+}
+
+.forecast .low {
+  margin: 0;
+  margin-top: 1px;
+  color: #b8b8b8;
+}

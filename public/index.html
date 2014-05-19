@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/icon-font.css">
+</head>
+<body ng-app="root">
+  <div class="main container-fluid">
+    <div ng-controller="index">
+      <div ng-repeat="city in cities" class="city">
+        <div>
+          <span class="name">{{ city.name }}</span>
+        </div>
+        <div class="current">
+          <div class="left">
+            <span class="primary-icon {{city.current.icon}}"></span>
+            <p class="summary">{{ city.current.summary }}</p>
+            <p class="wind"><span class="wicon-wind"></span>{{ city.current.windspeed }}<sup>MPH</sup></p>
+          </div>
+          <div class="right">
+            <span class="temp">{{ city.current.temperature }}&deg;</span>
+          </div>
+        </div>
+        <ul class="forecast">
+          <li class="day" ng-repeat="day in city.forecast">
+            <p class="weekday">{{ day.weekday }}</p>
+            <span class="secondary-icon {{day.icon}}"></span>
+            <p class="high">{{ day.high }}&deg;</p>
+            <p class="low">{{ day.low }}&deg;</p>
+          </li>
+        </ul>
+      </div>
+
+      <form ng-submit="addCity()">
+        <input type="text" ng-model="newCity" />
+        <button type="submit">Add City</button>
+      </form>
+    </div>
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <script src="app/main.js"></script>
+  <script src="app/services/weather.js"></script>
+</body>
+</html>
