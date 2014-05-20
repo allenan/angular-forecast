@@ -2,24 +2,7 @@ angular.module('services', [])
 
 .factory('Weather', function($http, $q) {
 
-  var weatherData;
-
-  var weekdays = [
-    'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'
-  ]
-
-  var iconMap = {
-    'clear-day': 'wicon-sun',
-    'clear-night': 'wicon-moon',
-    'rain': 'wicon-rainy2',
-    'snow': 'wicon-snowy3',
-    'sleet': 'wicon-weather4',
-    'wind': 'wicon-windy2',
-    'fog': 'wicon-weather3',
-    'cloudy': 'wicon-cloud2',
-    'partly-cloudy-day': 'wicon-cloudy',
-    'partly-cloudy-night': 'wicon-cloud'
-  }
+  /* Public */
 
   function fetchWeatherData(city) {
     var deferred = $q.defer();
@@ -32,9 +15,19 @@ angular.module('services', [])
     return deferred.promise;
   }
 
-  function getWeekday(unixTime) {
-    var day = new Date(unixTime * 1000).getDay();
-    return weekdays[day];
+  /* Private */
+
+  function structure(data) {
+      return {
+        name: data.formatted_address,
+        current: {
+          summary: data.currently.summary,
+          icon: data.currently.icon,
+          temperature: Math.round(data.currently.apparentTemperature),
+          windspeed: Math.round(data.currently.windSpeed)
+        },
+        forecast: structuredForecast(data.daily.data)
+      }
   }
 
   function structuredForecast(days) {
@@ -53,18 +46,16 @@ angular.module('services', [])
     return forecast;
   }
 
-  function structure(data) {
-      return {
-        name: data.formatted_address,
-        current: {
-          summary: data.currently.summary,
-          icon: data.currently.icon,
-          temperature: Math.round(data.currently.apparentTemperature),
-          windspeed: Math.round(data.currently.windSpeed)
-        },
-        forecast: structuredForecast(data.daily.data)
-      }
+  function getWeekday(unixTime) {
+    var day = new Date(unixTime * 1000).getDay();
+    return weekdays[day];
   }
+
+  var weekdays = [
+    'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'
+  ]
+
+  /* Exports */
 
   return {
     fetchWeatherData: fetchWeatherData
