@@ -16,7 +16,7 @@
         </div>
         <div class="current">
           <div class="left">
-            <span class="primary-icon {{city.current.icon}}"></span>
+            <img src="assets/{{city.current.icon}}.png" class="primary-icon" />
             <p class="summary">{{ city.current.summary }}</p>
             <p class="wind"><span class="wicon-wind"></span>{{ city.current.windspeed }}<sup>MPH</sup></p>
           </div>
@@ -27,7 +27,7 @@
         <ul class="forecast">
           <li class="day" ng-repeat="day in city.forecast">
             <p class="weekday">{{ day.weekday }}</p>
-            <span class="secondary-icon {{day.icon}}"></span>
+            <img src="assets/{{day.icon}}.png" class="secondary-icon" />
             <p class="high">{{ day.high }}&deg;</p>
             <p class="low">{{ day.low }}&deg;</p>
           </li>

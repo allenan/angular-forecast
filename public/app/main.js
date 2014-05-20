@@ -7,16 +7,14 @@ angular.module('root', ['services'])
 
   $scope.addCity = function() {
     var newCity = $scope.newCity.trim();
-
     Weather.fetchWeatherData(newCity).then(function(data) {
       cities.push({
-        name: newCity,
+        name: data.name,
         current: data.current,
         forecast: data.forecast
       });
       $scope.newCity = '';
     });
-
   };
 
 }]);

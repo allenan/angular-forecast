@@ -9,8 +9,8 @@ configure do
 end
 
 class Forecast
-  def initialize(city)
-    @city = city
+  def initialize(city_name)
+    @city_name = city_name
   end
 
   def show
@@ -24,7 +24,7 @@ class Forecast
   end
 
   def data
-    @data ||= fetch.parsed_response
+    @data ||= fetch.parsed_response.merge(formatted_address: city.formatted_address)
   end
 
   def api_key
@@ -32,8 +32,11 @@ class Forecast
   end
 
   def coordinates
-    results = Geocoder.search(@city)
-    "#{results.first.latitude},#{results.first.longitude}"
+    "#{city.latitude},#{city.longitude}"
+  end
+
+  def city
+    @city ||= Geocoder.search(@city_name).first
   end
 end
 

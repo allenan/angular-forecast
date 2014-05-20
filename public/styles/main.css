@@ -27,7 +27,7 @@ body {
 
 .current .left {
   display: inline-block;
-  width: 30%;
+  width: 37%;
   vertical-align: top;
   text-align: center;
 }
@@ -36,7 +36,7 @@ body {
   display: inline-block;
   width: 47%;
   vertical-align: top;
-  margin-left: 15px;
+  margin-left: 24px;
 }
 
 .name {
@@ -45,10 +45,9 @@ body {
 }
 
 .primary-icon {
-  font-size: 4em;
-  margin-top: 20px;
+  width: 68%;
+  margin-top: 10px;
   margin-bottom: 10px;
-  display: block;
 }
 
 .summary {
@@ -75,9 +74,10 @@ body {
 }
 
 .temp {
-  font-size: 130px;
+  font-size: 110px;
   line-height: 130px;
-  color: #979797;
+  /*color: #979797;*/
+  color: #7f8c8d;
 }
 
 .forecast {
@@ -97,9 +97,6 @@ body {
 }
 
 .forecast .secondary-icon {
-  font-size: 2em;
-  width: 100%;
-  display: block;
   height: 26px;
 }
 

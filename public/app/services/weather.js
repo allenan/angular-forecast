@@ -44,7 +44,7 @@ angular.module('services', [])
       forecast.push(
         {
           weekday: getWeekday(day.time),
-          icon: iconMap[day.icon],
+          icon: day.icon,
           high: Math.round(day.temperatureMax),
           low: Math.round(day.temperatureMin)
         }
@@ -55,9 +55,10 @@ angular.module('services', [])
 
   function structure(data) {
       return {
+        name: data.formatted_address,
         current: {
           summary: data.currently.summary,
-          icon: iconMap[data.currently.icon],
+          icon: data.currently.icon,
           temperature: Math.round(data.currently.apparentTemperature),
           windspeed: Math.round(data.currently.windSpeed)
         },
