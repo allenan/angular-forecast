@@ -1,7 +1,7 @@
 angular.module('root', ['services', 'storage'])
 
-.controller("index", ['$scope', 'Weather', 'cityStorage',
-            function($scope, Weather, cityStorage) {
+.controller("index", ['$scope', '$timeout', 'Weather', 'cityStorage',
+            function($scope, $timeout, Weather, cityStorage) {
 
   var cities = $scope.cities = cityStorage.get();
 
@@ -20,5 +20,26 @@ angular.module('root', ['services', 'storage'])
     cities.splice(cities.indexOf(city), 1);
     cityStorage.put(cities);
   };
+
+  var updateAll = function() {
+    angular.forEach(cities, function(city) {
+      Weather.fetchWeatherData(city.name).then(function(cityData) {
+        console.log(cityData);
+        cities[cities.indexOf(city)] = cityData;
+        cityStorage.put(cities);
+      });
+    });
+  };
+
+  $scope.updateAll = updateAll;
+
+  var poll = function() {
+    $timeout(function() {
+      updateAll();
+      poll();
+    }, 3000);
+  };
+
+  //poll();
 
 }]);
