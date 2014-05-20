@@ -13,6 +13,7 @@
       <div ng-repeat="city in cities" class="city">
         <div>
           <span class="name">{{ city.name }}</span>
+          <button type="button" class="close" ng-click="removeCity(city)" aria-hidden="true">&times;</button>
         </div>
         <div class="current">
           <div class="left">
@@ -43,5 +44,6 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
   <script src="app/main.js"></script>
   <script src="app/services/weather.js"></script>
+  <script src="app/services/city-storage.js"></script>
 </body>
 </html>
