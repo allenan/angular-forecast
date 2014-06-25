@@ -40,11 +40,14 @@ class Forecast
   end
 end
 
-get '/' do
-  redirect '/index.html'
-end
+class App < Sinatra::Base
 
-get '/forecast' do
-  content_type :json
-  Forecast.new(params[:city]).show.to_json
+  get '/' do
+    redirect '/index.html'
+  end
+
+  get '/forecast' do
+    content_type :json
+    Forecast.new(params[:city]).show.to_json
+  end
 end
