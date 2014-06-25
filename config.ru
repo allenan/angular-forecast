@@ -1,2 +1,2 @@
 require './app.rb'
-run App.run!
+run Forecast.run!
