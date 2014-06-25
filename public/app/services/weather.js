@@ -7,7 +7,7 @@ angular.module('services', [])
   function fetchWeatherData(city) {
     var deferred = $q.defer();
 
-    $http.get('http://localhost:4567/forecast', {params: {city: city}}).
+    $http.get('/forecast', {params: {city: city}}).
       success(function(data) {
         deferred.resolve(structure(data));
       });
